@@ -60,3 +60,10 @@ $('#search-channel-id').find("option[value='"+channel_id+"']").attr('selected',t
 '  "' + 变量 + '" ';
 ```
 
+js中button的type属性问题
+
+```
+今天用ajax提交表单的时候，每次页面都同时发送两次请求，最后发现原来是<button>按钮要给他加上类型(type),否则，当ajax发出请求的时候，会提交表单导致整个页面刷新，将<button type="button">或者<input type="button"> 不然就会提交表单。
+type只能为button，我尝试使用submit也是提交两次请求
+```
+
