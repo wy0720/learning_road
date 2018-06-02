@@ -10,6 +10,7 @@ table{ table-layout: fixed;word-wrap: break-word;}
 
 ```html
 overflow: hidden; （防止文字横向撑开）
+white-space:nowrap;
 text-overflow: ellipsis;
 ```
 
