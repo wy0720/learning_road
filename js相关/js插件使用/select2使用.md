@@ -28,6 +28,7 @@
   $('#search-schedule-name').select2().find("option:contains('"+schedule_name+"')").attr('selected',true);
   $('#search-schedule-name').select2().find("option:contains('"+schedule_name+"')").attr('selected',true);
   //连续选两次才能赋值上去。。。。。
+  ```
 
 
 
@@ -46,6 +47,12 @@
   $("document").ready(function (){
       .select2.select2();
   }
+  ```
+
+* select2设置默认值：
+
+  ```javascript
+  $('#select').val("要设置的值").select2();
   ```
 
   ​

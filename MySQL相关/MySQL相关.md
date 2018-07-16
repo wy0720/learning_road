@@ -22,3 +22,33 @@ from (SELECT DISTINCT a.id FROM h_order_service as a WHERE  a.`status` = 0) b
 )
 ```
 
+### 2查询数据时sum和查询其他字段的问题
+
+* 在一个查询语句当中有：
+
+  ```mysql
+  select sum（字段1，字段2）as s,字段3 from 表名.....
+  ```
+
+  此处将报错
+
+* 正确的姿势
+
+  ```mysql
+  select sum (字段1，字段2) as s,字段3 from 表名...groupBy('字段3')；
+  ```
+
+  或者
+
+  ```mysql
+  select sum(字段1，字段2) as s,字段1，字段2 from 表名 ....
+  ```
+
+* 总结：在使用sum函数时想要查询其他字段时有两种情况：1.想要查询的字段在sum中；2.想要查询的字段不在sum中。
+
+  对于1，不需要其他的姿势，直接查；
+
+  对于2，需要将字段groupby一下，至于为何，还待研究
+
+### 3.concat的使用
+
