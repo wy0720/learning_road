@@ -32,3 +32,8 @@ handle()方法有两个参数
 
 
 
+### 数据库查询wherein
+
+```
+laravel中当wherein 条件为空时会自动转化为 where 0 = 1
+```
