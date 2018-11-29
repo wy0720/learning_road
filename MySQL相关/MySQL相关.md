@@ -52,3 +52,18 @@ from (SELECT DISTINCT a.id FROM h_order_service as a WHERE  a.`status` = 0) b
 
 ### 3.concat的使用
 
+### 4.distinct
+
+* 查询时会经常使用去重操作，例如
+
+  ```sql
+  select distinct username,mobile from table 
+  ```
+
+* 此时获得的数据是username，mobile两列数据，那么，想要获得去重后的所有数据信息如何操作？
+
+  ```sql
+  select * from table group by username,mobile
+  ```
+
+  这样就可以达到效果了
