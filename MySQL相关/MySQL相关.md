@@ -67,3 +67,20 @@ from (SELECT DISTINCT a.id FROM h_order_service as a WHERE  a.`status` = 0) b
   ```
 
   这样就可以达到效果了
+
+### 5.case when用来做字段状态判断替换，与ifelse同功效
+
+### 6.IF语法
+
+### 7.exist和in的区别使用
+
+* exist返回的是布尔值，in返回结果集，exit走索引，关键exist可以将外表的参数传到子查询中当做条件来查询，比较灵活，同时扫描的表的行数也比in要少。
+
+  https://www.cnblogs.com/beijingstruggle/p/5885137.html
+
+### 8.在查询时查询其他表中符合条件的条数的方法
+
+```sql
+select * ,(select count(*) from b where a.b_id = b.id) as b_count from a
+```
+
