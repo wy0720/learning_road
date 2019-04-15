@@ -59,6 +59,82 @@
             }
     ```
 
+  * nginx的server配置实例
+
+    ```
+    server {
+            listen      80;
+            server_name  onesun.site;
+            
+            #charset koi8-r;
+
+            access_log  logs/cms.access.log;
+
+            set $root    /www/cms/public;
+
+            root $root;
+
+            location / {
+                root    $root;
+                index    index.php;
+                if ( -f $request_filename) {
+                    break;
+                }
+                if ( !-e $request_filename) {
+                    rewrite ^(.*)$ /index.php/$1 last;
+                  
+                    break;
+                }
+            }
+
+
+            location ~ .+\.php($|/) {
+                #include fastcgi_params;
+                fastcgi_pass 127.0.0.1:9000;
+                #fastcgi_index index.php;
+                #fastcgi_param SCRIPT_FILENAME $root$fastcgi_script_name;
+
+                fastcgi_split_path_info ^((?U).+.php)(/?.+)$;
+                fastcgi_param PATH_INFO $fastcgi_path_info;
+                fastcgi_param PATH_TRANSLATED $document_root$fastcgi_path_info;
+                fastcgi_param    SCRIPT_FILENAME    $root$fastcgi_script_name;
+                include        fastcgi_params;
+            }
+
+            #error_page  404              /404.html;
+
+            # redirect server error pages to the static page /50x.html
+            #
+            error_page   500 502 503 504  /50x.html;
+            location = /50x.html {
+                root   html;
+            }
+
+            # proxy the PHP scripts to Apache listening on 127.0.0.1:80
+            #
+            #location ~ \.php$ {
+            #    proxy_pass   http://127.0.0.1;
+            #}
+
+            # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
+            #
+            #location ~ \.php$ {
+            #    root           html;
+            #    fastcgi_pass   127.0.0.1:9000;
+            #    fastcgi_index  index.php;
+            #    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;
+            #    include        fastcgi_params;
+            #}
+
+            # deny access to .htaccess files, if Apache's document root
+            # concurs with nginx's one
+            #
+            #location ~ /\.ht {
+            #    deny  all;
+            #}
+        }
+    ```
+
     ​
 
 * 2.PHP安装
