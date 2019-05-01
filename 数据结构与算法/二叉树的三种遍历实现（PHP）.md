@@ -138,7 +138,7 @@ var_dump($a);//		A
 */				
 
 // $a->preTravel($a);//a,b,d,e,c,f
-// $a->centTravel($a);//b,d,e,a,c,f
+// $a->centTravel($a);//d,b,e,a,c,f
 $a->lastTravel($a);//d,e,b,f,c,a
 $a->leavelTravel($a);
 ```
