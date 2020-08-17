@@ -1,0 +1,1 @@
+打开PHPstorm，关掉所有的项目文件标签，将文件拖进界面，重启，为PHPstorm安装，over！

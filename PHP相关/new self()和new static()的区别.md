@@ -1,7 +1,7 @@
 ### new self()和new static()的区别
 
 * new self()返回的都是同一个实例【根父类】
-* new static返回的是当前对象实例
+* new static返回的是当前对象实例，延迟绑定
 
 ```php
 class Father
