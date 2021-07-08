@@ -55,7 +55,7 @@
 
 * hash索引:只支持<font color='red'>Memory引擎</font>
 
-* FULLTEXT索引（现在MyISAM和InnoDB引擎都支持了）
+* FULLTEXT索引（现在MyISAM和InnoDB引擎都支持了）hh
 
   * 主要用来查找文本中的关键字，而不是直接与索引中的值相比较。fulltext索引跟其它索引大不相同，它更像是一个搜索引擎，而不是简单的where语句的参数匹配。fulltext索引配合**match against**操作使用，而不是一般的where语句加like。
 
